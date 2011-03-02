@@ -15,7 +15,7 @@ public final class R {
         public static final int splashscreen=0x7f020001;
     }
     public static final class id {
-        public static final int imageView1=0x7f050000;
+        public static final int splashscreen=0x7f050000;
     }
     public static final class layout {
         public static final int main=0x7f030000;

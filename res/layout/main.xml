@@ -4,10 +4,16 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
     
-<ImageView 
-	android:layout_width="fill_parent" 
-	android:id="@+id/imageView1" 
-	android:src="@drawable/splashscreen" 
-	android:layout_height="fill_parent"
-	></ImageView>
+<ImageButton
+    android:src="@drawable/splashscreen" 
+    android:layout_width="wrap_content"
+    android:layout_alignParentRight="true"
+    android:id="@+id/splashscreen"
+    android:clickable="true"
+    android:onClick="clickNew"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:background="@null" />
+
+
 </LinearLayout>
