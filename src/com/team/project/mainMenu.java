@@ -20,11 +20,15 @@ import android.view.View.OnTouchListener;
 
 public class mainMenu extends Activity implements OnClickListener{
 public byte[] boom;
+private audioMixer mSoundManager;
 int intSize = android.media.AudioTrack.getMinBufferSize(44100, AudioFormat.CHANNEL_CONFIGURATION_MONO,
         AudioFormat.ENCODING_PCM_16BIT);
 
 AudioTrack at = new AudioTrack(AudioManager.STREAM_MUSIC, 44100, AudioFormat.CHANNEL_CONFIGURATION_MONO,
                     AudioFormat.ENCODING_PCM_16BIT, intSize, AudioTrack.MODE_STREAM);
+
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,30 +36,33 @@ AudioTrack at = new AudioTrack(AudioManager.STREAM_MUSIC, 44100, AudioFormat.CHA
         setContentView(R.layout.splash);
         Button b1 = (Button) findViewById(R.id.playsound);
         
+        mSoundManager = new audioMixer();
+        mSoundManager.initSounds(getBaseContext());
+        mSoundManager.addSound(1, R.raw.boom);
+        mSoundManager.addSound(2, R.raw.kick);
+        
+          
         try {
 			boom = CreateBuffer("android.resource://" + getPackageName() + "/res/raw/boom");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		playAudioTrack();
+		//playAudioTrack();
         //b1.setOnTouchListener(this);
         b1.setOnClickListener(this);
   
+
     
     }
 
     
 	public void onClick(View v) {
-//android.resource://
-     //   try {
-        	//PlayAudioTrack("android.resource://" + getPackageName() + "/res/raw/boom");
-        	PlayAudioTrack(boom);
-		//} catch (IOException e) {
-			// TODO Auto-generated catch block
-		//	e.printStackTrace();
-		//}
-		
+
+       // mSoundManager.playSound(1);
+        mSoundManager.playSound(2);
+        
+		 
 	}
 
     private void playAudioTrack()

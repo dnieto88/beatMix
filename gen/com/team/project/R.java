@@ -23,7 +23,7 @@ public final class R {
         public static final int splash=0x7f030001;
     }
     public static final class raw {
-        public static final int kick=0x7f040000;
+        public static final int boom=0x7f040000;
     }
     public static final class string {
         public static final int app_name=0x7f050001;
